@@ -1,7 +1,6 @@
-def part1(data):
-    entries = []
-    e = ""
-    for line in data:
+def part1(inp: list) -> int:
+    entries, e = [], ""
+    for line in inp:
         if not line:
             entries.append(e)
             e = ""
@@ -12,13 +11,11 @@ def part1(data):
     res = 0
     for line in entries:
         res += len(set(line))
-    print(res)
+    return res
 
-
-def part2(data):
-    entries = list()
-    e = list()
-    for line in data:
+def part2(inp: list) -> int:
+    entries, e = [], []
+    for line in inp:
         if not line:
             entries.append(e)
             e = list()
@@ -29,19 +26,12 @@ def part2(data):
     res = []
     for e in entries:
         res.append(len((e[0].intersection(*e))))
-    print(sum(res))
-
-   
-
-    
+    return sum(res)
 
 def main():
     inp = [x.strip() for x in open("aoc/2020/inputfiles/day6.in", 'r').readlines()]
-    part1(inp)
-    part2(inp)
-
-
-
+    print("part 1: ", part1(inp))
+    print("part 2: ", part2(inp))
 
 if __name__ == "__main__":
     main()
