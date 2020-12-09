@@ -2,8 +2,8 @@
 def part1(inp:list, pre:int) -> int:
     lookbackList = inp[:pre]
     for i in range(pre, len(inp)):
-        needs = {j + k for j in lookbackList for k in lookbackList if j != k}
-        if inp[i] not in needs:
+        deltaSet = {j + k for j in lookbackList for k in lookbackList if j != k}
+        if inp[i] not in deltaSet:
             return inp[i]
         lookbackList = inp[i + 1 - pre: i + 1]
 
