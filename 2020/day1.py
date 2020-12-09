@@ -1,29 +1,23 @@
-test = [1721,979,366,299,675,1456]
+def part1(inp: list) -> int:
+    deltaDict = {(2020 - i): i 
+                for i in inp}
+    for i in inp:
+        if i in deltaDict:
+            return i * deltaDict[i]
 
-
-def part1(data):
-    for i in data:
-        for j in data:
-            if i + j == 2020:
-                print(i*j)
-                return
-
-
-def part2(data):
-    for i in data:
-        for j in data:
-            for k in data:
-                if i + j + k == 2020:
-                    print(i*j*k)
-                    return
+def part2(inp: list) -> int:
+    deltaDict = {(2020 - i - j): (i,j)
+                    for i in inp 
+                    for j in inp 
+                    if i != j}
+    for i in inp:
+        if i in deltaDict:
+            return i * deltaDict[i][0] * deltaDict[i][1]
 
 def main():
-    inp = open("aoc/2020/inputfiles/day1.in", 'r').readlines()
-    data = list(map(int, inp))
-    part1(data)
-    part2(data)
-
-
+    inp = [int(x) for x in open("aoc/2020/inputfiles/day1.in", 'r').readlines()]
+    print("part 1: ", part1(inp))
+    print("part 2: ", part2(inp))
 
 if __name__ == "__main__":
     main()
