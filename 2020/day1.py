@@ -1,3 +1,5 @@
+import sys
+
 def part1(inp: list) -> int:
     deltaDict = {(2020 - i): i 
                 for i in inp}
@@ -15,7 +17,7 @@ def part2(inp: list) -> int:
             return i * deltaDict[i][0] * deltaDict[i][1]
 
 def main():
-    inp = [int(x) for x in open("aoc/2020/inputfiles/day1.in", 'r').readlines()]
+    inp = [int(x) for x in open(sys.argv[1], 'r').readlines()]
     print("part 1: ", part1(inp))
     print("part 2: ", part2(inp))
 

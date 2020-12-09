@@ -1,3 +1,4 @@
+import sys
 
 def part1(inp:list, pre:int) -> int:
     lookbackList = inp[:pre]
@@ -18,7 +19,7 @@ def part2(inp:list, invNum:int) -> int:
                 return min(res) + max(res)  
 
 def main():
-    inp = [int(x) for x in open("aoc/2020/inputfiles/day9.in", 'r').readlines()]
+    inp = [int(x) for x in open(sys.argv[1], 'r').readlines()]
     invalidNumber = part1(inp, 25)
     print("part 1: ", invalidNumber)
     print("part 2: ",part2(inp, invalidNumber))

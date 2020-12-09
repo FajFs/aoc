@@ -1,3 +1,5 @@
+import sys
+
 def part1(inp: list) -> int:
     entries, e = [], ""
     for line in inp:
@@ -29,7 +31,7 @@ def part2(inp: list) -> int:
     return sum(res)
 
 def main():
-    inp = [x.strip() for x in open("aoc/2020/inputfiles/day6.in", 'r').readlines()]
+    inp = [x.strip() for x in open(sys.argv[1], 'r').readlines()]
     print("part 1: ", part1(inp))
     print("part 2: ", part2(inp))
 

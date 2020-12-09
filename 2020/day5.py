@@ -1,4 +1,5 @@
 import math
+import sys
 
 def part12(inp: list) -> (int, int):
     id = []
@@ -21,14 +22,14 @@ def part12(inp: list) -> (int, int):
             if c == "R":
                 colL = ceil(colH, colL)      
         id.append(rowH * 8 + colL)
-        
+
     for i in [x for x in range(0, max(id))]:
         if i not in id:
             res.append(i)
     return max(id), max(res)
 
 def main():
-    inp = [x.strip() for x in open("aoc/2020/inputfiles/day5.in", 'r').readlines()]
+    inp = [x.strip() for x in open(sys.argv[1], 'r').readlines()]
     a,b = part12(inp)
     print("part 1: ", a)
     print("part 2: ", b)

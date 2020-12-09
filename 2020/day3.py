@@ -1,3 +1,5 @@
+import sys
+
 def part1(inp: list) -> int:
     col, row, ans = 0, 0, 0
     while row < len(inp) - 1:
@@ -19,7 +21,7 @@ def part2(inp: list) -> int:
     return ans
         
 def main():
-    inp = [x.strip() for x in open("aoc/2020/inputfiles/day3.in", 'r').readlines()]
+    inp = [x.strip() for x in open(sys.argv[1], 'r').readlines()]
     print("part 1: ", part1(inp))
     print("part 2: ", part2(inp))
 

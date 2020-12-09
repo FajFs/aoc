@@ -1,4 +1,5 @@
 import re
+import sys
 
 def part1(inp: list) -> int:
     res = 0
@@ -18,7 +19,7 @@ def part2(inp: list) -> int:
     return res
 
 def main():
-    inp = open("aoc/2020/inputfiles/day2.in", 'r').readlines()
+    inp = open(sys.argv[1], 'r').readlines()
     print("part 1: ", part1(inp))
     print("part 2: ", part2(inp))
 

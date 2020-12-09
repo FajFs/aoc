@@ -1,4 +1,5 @@
 import copy
+import sys
 
 def execute(ins) -> (int, str):
     acc, ptr = 0, 0
@@ -49,7 +50,7 @@ class Inst:
         self.offset = offset
 
 def main():
-    inp = [x.strip() for x in open("aoc/2020/inputfiles/day8.in", 'r').readlines()]
+    inp = [x.strip() for x in open(sys.argv[1], 'r').readlines()]
     instructions = []
     for i, ins in enumerate(inp):
         op, arg = ins.split()

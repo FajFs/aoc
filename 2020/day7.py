@@ -1,4 +1,5 @@
 import re
+import sys
 
 #Bottom up
 def part1(inp: list) -> int:
@@ -34,7 +35,7 @@ class Bag:
         self.color = c
 
 def main():
-    inp = [x.strip() for x in open("aoc/2020/inputfiles/day7.in", 'r').readlines()]
+    inp = [x.strip() for x in open(sys.argv[1], 'r').readlines()]
     filteredInput = {}
     for line in inp:
         line = line.replace("bags","").replace("contain","").replace("bag","").replace(".","").replace(" ","").replace(",","").replace("noother","")

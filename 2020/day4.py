@@ -14,6 +14,8 @@ def ruleSet(k,v):
     }
     return switch[k](v)
 
+import sys
+
 newP = {"byr":None, "iyr":None, "eyr":None, "hgt":None, "hcl":None, "ecl":None, "pid":None } #"cid":None
 
 def part12(inp: list, part: str) -> int:
@@ -34,7 +36,7 @@ def part12(inp: list, part: str) -> int:
     return len(passports)
 
 def main():
-    inp = [x.split() for x in open("aoc/2020/inputfiles/day4.in", 'r')]
+    inp = [x.split() for x in open(sys.argv[1], 'r')]
     print("part 1: ", part12(inp, "p1"))
     print("part 2: ", part12(inp, "p2"))
 
