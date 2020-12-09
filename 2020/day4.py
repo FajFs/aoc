@@ -1,5 +1,4 @@
-
-def dataValidator(k,v):
+def ruleSet(k,v):
     switch = {
         "byr": lambda v: int(v) if 1920 <= int(v) <= 2002 else None,
         "iyr": lambda v: int(v) if 2010 <= int(v) <= 2020 else None,
@@ -17,38 +16,27 @@ def dataValidator(k,v):
 
 newP = {"byr":None, "iyr":None, "eyr":None, "hgt":None, "hcl":None, "ecl":None, "pid":None } #"cid":None
 
-def part12(d , part):
+def part12(inp: list, part: str) -> int:
     passports = []
     p = newP.copy()
-    for line in d:
+    for line in inp:
         if not line:
-            passports.append(p)
+            if all(x != None for x in p.values()):
+                passports.append(p)
             p = newP.copy()
         else:
             for info in line:
                 k,v = info.split(":")
-                p[k] = v if part == "p1" else dataValidator(k,v)
-    passports.append(p) #append last entry
-    
-    ans = 0
-    for p in passports:
-        if all(x != None for x in p.values()):
-            ans += 1   
-    print(part, ans)
-
-
-
-
-
-
-
+                p[k] = v if part == "p1" else ruleSet(k,v)
+    #append last entry
+    if all(x != None for x in p.values()):
+        passports.append(p) 
+    return len(passports)
 
 def main():
-    f = open("aoc/2020/inputfiles/day4.in", 'r')
-    inp = [x.split() for x in f.readlines()]
-    part12(inp, "p1")
-    part12(inp, "p2")
-
+    inp = [x.split() for x in open("aoc/2020/inputfiles/day4.in", 'r')]
+    print("part 1: ", part12(inp, "p1"))
+    print("part 2: ", part12(inp, "p2"))
 
 if __name__ == "__main__":
     main()
