@@ -12,7 +12,7 @@ def part1(inp: list) -> int:
 
     while parents:
         p = parents.pop()
-        for (k,v) in d.items():
+        for (k,v) in inp.items():
             if p in [x.color for x in v]:
                 parents.add(k)
                 res.add(k)
