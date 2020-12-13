@@ -35,10 +35,9 @@ def part2(instructions:list) -> (int, str):
         acc, err = 0, ""
         if i[idx].op == "jmp":
             i[idx].op = "nop"
-            acc, err = execute(i)
         elif i[idx].op == "nop":
             i[idx].op = "jmp"
-            acc, err = execute(i)
+        acc, err = execute(i)
         
         if err == "ok":
             return acc, err
