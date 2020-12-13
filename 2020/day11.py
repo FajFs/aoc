@@ -59,14 +59,10 @@ def part2(inp: list, tolerance: int) -> int:
         if not modified:
             return sum([x.count("#") for x in inp])
 
-import time
 def main():
     inp = [list(x.strip()) for x in open(sys.argv[1], "r").readlines()]
     inp2 = copy.deepcopy(inp)
-    s = time.time()
     print("part 1: ", part1(inp, 4))
     print("part 2: ", part2(inp2, 5))
-    e = time.time()
-    print(e - s)
 if __name__ == "__main__":
     main()
